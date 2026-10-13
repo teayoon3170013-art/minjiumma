@@ -1,5 +1,4 @@
 from __future__ import annotations
-
 import html
 import os
 import sqlite3
@@ -106,7 +105,9 @@ def dashboard():
 
 
 async def run_discord_bot() -> None:
-    token = "MTU1OTUyMTU3MDY4NTE5ODM2Nw.GEM1SC.dVM1kAwfnGjXb4HrfTYKD5-KoROWy504dufKz8"
+    token = (Path(__file__).parent / "bot_token.txt").read_text(
+    encoding="utf-8"
+    ).strip()
    
     import discord
     from discord import app_commands
