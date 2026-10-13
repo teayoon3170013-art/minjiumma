@@ -107,7 +107,10 @@ def dashboard():
 
 async def run_discord_bot() -> None:
     token = os.getenv("DISCORD_BOT_TOKEN")
-    print("[DEBUG] token exists:", "DISCORD_BOT_TOKEN" in os.environ, flush=True)
+    print("[BOT DEBUG] run_discord_bot() called", flush=True)
+    print("[BOT DEBUG] Environment variable exists:",
+      "DISCORD_BOT_TOKEN" in os.environ, flush=True)
+    print("[BOT DEBUG] Token configured:", bool(token), flush=True)
     if not token:
         print("[v0] DISCORD_BOT_TOKEN is not set; Discord gateway bot is disabled")
         return
