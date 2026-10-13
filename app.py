@@ -157,23 +157,8 @@ async def run_discord_bot() -> None:
 
 @app.on_event("startup")
 async def start_background_services():
-    print("[BOT DEBUG] Startup event triggered", flush=True)
-    print(
-        "[BOT DEBUG] Env var exists:",
-        "DISCORD_BOT_TOKEN" in os.environ,
-        flush=True
-    )
-    print(
-        "[BOT DEBUG] Token configured:",
-        bool(os.getenv("DISCORD_BOT_TOKEN")),
-        flush=True
-    )
-
-    if os.getenv("DISCORD_BOT_TOKEN"):
-        app.state.discord_task = asyncio.create_task(run_discord_bot())
-        print("[BOT DEBUG] Bot task created", flush=True)
-    else:
-        print("[BOT DEBUG] Token missing; bot task not started", flush=True)
+    app.state.discord_task = asyncio.create_task(run_discord_bot())
+    print("[BOT DEBUG] Bot task created", flush=True)
 
 
 
